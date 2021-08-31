@@ -1,3 +1,7 @@
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/styles.css";
+
 // This function stores our state.
 
 const storeState = () => {
@@ -5,11 +9,13 @@ const storeState = () => {
   return (stateChangeFunction = (state) => state) => {
     const newState = stateChangeFunction(currentState);
     currentState = { ...newState };
+    console.log("hello", currentState);
     return newState;
   };
 };
 
 const stateControl = storeState();
+const plant = storeState();
 
 // This is a function factory. used to easily create more specific functions that alter a plant's soil, water, and light to varying degrees.
 
@@ -26,7 +32,6 @@ const changeState = (prop) => {
 
 const feed = changeState("soil")(1);
 const blueFood = changeState("soil")(5);
-
 const hydrate = changeState("water")(1);
 const superWater = changeState("water")(5);
 
@@ -36,6 +41,9 @@ $(document).ready(function () {
   $("#feed").click(function () {
     const newState = stateControl(blueFood);
     $("#soil-value").text(`Soil: ${newState.soil}`);
+    // const newState2 = plant(hydrate);
+    // $("#soil-value").text(`Soil: ${newState2.soil}`);
+    // console.log("new plant", newState2);
   });
 
   // This function doesn't actually do anything useful in this application - it just demonstrates how we can "look" at the current state (which the DOM is holding anyway).
