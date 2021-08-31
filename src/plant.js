@@ -16,6 +16,39 @@ const storeState = () => {
 
 const stateControl = storeState();
 const plant = storeState();
+const newPlant = storeState();
+
+// const canEat = (superPlant) => ({
+//   eat: (food) => {
+//     return `The ${superPlant} eats the ${food}.`
+//   }
+// });
+
+// const canSleep = (superPlant) => ({
+//   sleep: () => {
+//     return `The ${superPlant} sleeps.`
+//   }
+// });
+
+// const sleepingEatingSuperPlant = () => {
+//   const superPlant = newPlant;
+//   return { ...superPlant, ...canEat(superPlant), ...canSleep(superPlant) };
+// };
+
+// console.log(sleepingEatingSuperPlant());
+
+const music = function (plantName) {
+  const obj = {
+    listen: function (song) {
+      return `The ${plantName} listens to ${song}.`;
+    },
+  };
+  return obj;
+};
+
+const plantMusic = music(newPlant);
+
+plantMusic.listen("a song");
 
 // This is a function factory. used to easily create more specific functions that alter a plant's soil, water, and light to varying degrees.
 
