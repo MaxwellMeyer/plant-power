@@ -40,10 +40,18 @@ $(document).ready(function () {
 
   $("#feed").click(function () {
     const newState = stateControl(blueFood);
-    $("#soil-value").text(`Soil: ${newState.soil}`);
-    // const newState2 = plant(hydrate);
-    // $("#soil-value").text(`Soil: ${newState2.soil}`);
-    // console.log("new plant", newState2);
+    $("#soil-value-1").text(`Soil: ${newState.soil}`);
+    const newState2 = plant(feed);
+    $("#soil-value-2").text(`Soil: ${newState2.soil}`);
+    console.log("new plant", newState2);
+  });
+
+  $("#water").click(function () {
+    const newState = stateControl(hydrate);
+    $("#water-value-1").text(`Water: ${newState.water}`);
+    const newState2 = plant(hydrate);
+    $("#water-value-2").text(`Water: ${newState2.water}`);
+    console.log("new plant", newState2);
   });
 
   // This function doesn't actually do anything useful in this application - it just demonstrates how we can "look" at the current state (which the DOM is holding anyway).
